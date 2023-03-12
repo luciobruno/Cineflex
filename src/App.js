@@ -1,10 +1,9 @@
-import { BrowserHistory, Routes, Route, BrowserRouter } from "react-router-dom"
+import { Routes, Route, BrowserRouter } from "react-router-dom"
 import styled from "styled-components"
 import HomePage from "./pages/HomePage/HomePage"
 import SeatsPage from "./pages/SeatsPage/SeatsPage"
 import SessionsPage from "./pages/SessionsPage/SessionsPage"
 import SuccessPage from "./pages/SuccessPage/SuccessPage"
-
 
 export default function App() {
     return (
@@ -13,7 +12,7 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<HomePage></HomePage>}></Route>
                 <Route path="/sessoes/:idFilme" element={<SessionsPage></SessionsPage>}></Route>
-                <Route path="/seatspage" element={<SeatsPage></SeatsPage>}></Route>
+                <Route path="/assentos/:idSessao" element={<SeatsPage></SeatsPage>}></Route>
                 <Route path="/sucesspage" element={<SuccessPage></SuccessPage>}></Route>
             </Routes>
         </BrowserRouter>

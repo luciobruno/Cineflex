@@ -16,7 +16,7 @@ export default function HomePage() {
         })
 
         promise.catch((err) =>{
-            console.log(err.response.data)
+            console.log(err.response.data)  
         })
     }, [])
 

@@ -1,13 +1,16 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 import styled from "styled-components"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 export default function SessionsPage() {
 
     const { idFilme } = useParams()
 
     const [items, setItems] = useState([])
+
+    const [itemDays, setitemDays] = useState([])
+
 
     useEffect(() => {
 
@@ -16,40 +19,19 @@ export default function SessionsPage() {
         const promise = axios.get(url)
 
         promise.then((res) => {
-            setItems(res.data) 
-            console.log(res.data)}
+            setItems(res.data)
+            setitemDays(res.data.days)
+        }
         )
         promise.catch(err => console.log(err.response.data))
 
-    },[])
+    }, [idFilme])
 
     return (
         <PageContainer>
             Selecione o horário
             <div>
-                <SessionContainer>
-                    Sexta - 03/03/2023
-                    <ButtonsContainer>
-                        <button>14:00</button>
-                        <button>15:00</button>
-                    </ButtonsContainer>
-                </SessionContainer>
-
-                <SessionContainer>
-                    Sexta - 03/03/2023
-                    <ButtonsContainer>
-                        <button>14:00</button>
-                        <button>15:00</button>
-                    </ButtonsContainer>
-                </SessionContainer>
-
-                <SessionContainer>
-                    Sexta - 03/03/2023
-                    <ButtonsContainer>
-                        <button>14:00</button>
-                        <button>15:00</button>
-                    </ButtonsContainer>
-                </SessionContainer>
+                {itemDays.map((item, index) => <SessionContainer key={item.id}>{item.weekday} - {item.date}<ButtonsContainer><Link to={`/assentos/${item.showtimes[0].id}`}><button>{item.showtimes[0].name}</button></Link><Link to={`/assentos/${item.showtimes[1].id}`}><button>{item.showtimes[1].name}</button></Link></ButtonsContainer></SessionContainer>)}
             </div>
 
             <FooterContainer>
