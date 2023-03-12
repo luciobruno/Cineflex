@@ -1,6 +1,27 @@
+import axios from "axios"
+import { useState, useEffect } from "react"
 import styled from "styled-components"
+import { useParams } from "react-router-dom"
 
 export default function SessionsPage() {
+
+    const { idFilme } = useParams()
+
+    const [items, setItems] = useState([])
+
+    useEffect(() => {
+
+        const url = `https://mock-api.driven.com.br/api/v8/cineflex/movies/${idFilme}/showtimes`
+
+        const promise = axios.get(url)
+
+        promise.then((res) => {
+            setItems(res.data) 
+            console.log(res.data)}
+        )
+        promise.catch(err => console.log(err.response.data))
+
+    },[])
 
     return (
         <PageContainer>
@@ -33,7 +54,7 @@ export default function SessionsPage() {
 
             <FooterContainer>
                 <div>
-                    <img src={"https://br.web.img2.acsta.net/pictures/22/05/16/17/59/5165498.jpg"} alt="poster" />
+                    <img src={items.posterURL} alt="poster" />
                 </div>
                 <div>
                     <p>Tudo em todo lugar ao mesmo tempo</p>
