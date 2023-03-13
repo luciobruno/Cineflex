@@ -43,7 +43,7 @@ export default function SessionsPage() {
                     <img src={items.posterURL} alt="poster" />
                 </div>
                 <div>
-                    <p>Tudo em todo lugar ao mesmo tempo</p>
+                    <p>{items.title}</p>
                 </div>
             </FooterContainer>
 
