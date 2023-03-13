@@ -128,7 +128,7 @@ export default function SeatsPage({ comprador, setComprado }) {
                     CPF do Comprador:
                     <input data-test="client-cpf" type="text" value={cpf} onChange={e => setCpf(e.target.value)} placeholder="Digite seu CPF..." />
 
-                    <button type="submit">Reservar Assento(s)</button>
+                    <button data-test="book-seat-btn" type="submit">Reservar Assento(s)</button>
                 </form>
             </FormContainer>
 
