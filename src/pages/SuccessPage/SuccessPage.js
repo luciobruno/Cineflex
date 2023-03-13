@@ -1,6 +1,14 @@
 import styled from "styled-components"
+import { useNavigate } from "react-router-dom"
 
-export default function SuccessPage() {
+export default function SuccessPage({setComprado,comprado}) {
+
+    const navigate = useNavigate()
+
+    function voltar(){
+        setComprado("")
+        navigate("/")
+    }
 
     return (
         <PageContainer>
@@ -8,24 +16,22 @@ export default function SuccessPage() {
 
             <TextContainer>
                 <strong><p>Filme e sessão</p></strong>
-                <p>Tudo em todo lugar ao mesmo tempo</p>
-                <p>03/03/2023 - 14:00</p>
+                <p>{comprado.filme}</p>
+                <p>{comprado.date} - {comprado.hour}</p>
             </TextContainer>
 
             <TextContainer>
                 <strong><p>Ingressos</p></strong>
-                <p>Assento 01</p>
-                <p>Assento 02</p>
-                <p>Assento 03</p>
+                {comprado.ingressos.map((ingresso,index)=><p key={index}>Assento {comprado.ingressos[index]}</p>)}
             </TextContainer>
 
             <TextContainer>
                 <strong><p>Comprador</p></strong>
-                <p>Nome: Letícia Chijo</p>
-                <p>CPF: 123.456.789-10</p>
+                <p>Nome: {comprado.nome}</p>
+                <p>CPF: {comprado.cpf}</p>
             </TextContainer>
 
-            <button>Voltar para Home</button>
+            <button onClick={()=>voltar()}>Voltar para Home</button>
         </PageContainer>
     )
 }

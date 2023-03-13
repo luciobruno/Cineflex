@@ -25,7 +25,11 @@ export default function SessionsPage() {
         )
         promise.catch(err => console.log(err.response.data))
 
-    }, [idFilme])
+    }, [])
+
+    if(items.length===0){
+        return <div>Carregando...</div>
+    }
 
     return (
         <PageContainer>

@@ -4,16 +4,20 @@ import HomePage from "./pages/HomePage/HomePage"
 import SeatsPage from "./pages/SeatsPage/SeatsPage"
 import SessionsPage from "./pages/SessionsPage/SessionsPage"
 import SuccessPage from "./pages/SuccessPage/SuccessPage"
+import { useState } from "react"
 
 export default function App() {
+
+    const [comprado,setComprado] = useState([]);
+
     return (
         <BrowserRouter>
             <NavContainer>CINEFLEX</NavContainer>
             <Routes>
                 <Route path="/" element={<HomePage></HomePage>}></Route>
                 <Route path="/sessoes/:idFilme" element={<SessionsPage></SessionsPage>}></Route>
-                <Route path="/assentos/:idSessao" element={<SeatsPage></SeatsPage>}></Route>
-                <Route path="/sucesspage" element={<SuccessPage></SuccessPage>}></Route>
+                <Route path="/assentos/:idSessao" element={<SeatsPage comprado={comprado} setComprado={setComprado}></SeatsPage>}></Route>
+                <Route path="/sucesso" element={<SuccessPage setComprado={setComprado} comprado={comprado}></SuccessPage>}></Route>
             </Routes>
         </BrowserRouter>
     )
