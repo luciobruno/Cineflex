@@ -25,7 +25,7 @@ export default function HomePage() {
         <PageContainer>
             Selecione o filme
             <ListContainer>
-                {items.map((item, index) => <MovieContainer key={index}><Link to={`/sessoes/${index+1}`}><img src={item.posterURL} alt="poster"></img></Link></MovieContainer>)}
+                {items.map((item, index) => <MovieContainer data-test="movie" key={index}><Link to={`/sessoes/${index+1}`}><img src={item.posterURL} alt="poster"></img></Link></MovieContainer>)}
             </ListContainer>
 
         </PageContainer>

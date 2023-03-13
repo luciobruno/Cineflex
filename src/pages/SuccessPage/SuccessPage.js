@@ -14,18 +14,18 @@ export default function SuccessPage({setComprado,comprado}) {
         <PageContainer>
             <h1>Pedido feito <br /> com sucesso!</h1>
 
-            <TextContainer>
+            <TextContainer data-test="movie-info">
                 <strong><p>Filme e sessão</p></strong>
                 <p>{comprado.filme}</p>
                 <p>{comprado.date} - {comprado.hour}</p>
             </TextContainer>
 
-            <TextContainer>
+            <TextContainer data-test="seats-info">
                 <strong><p>Ingressos</p></strong>
                 {comprado.ingressos.map((ingresso,index)=><p key={index}>Assento {comprado.ingressos[index]}</p>)}
             </TextContainer>
 
-            <TextContainer>
+            <TextContainer data-test="client-info">
                 <strong><p>Comprador</p></strong>
                 <p>Nome: {comprado.nome}</p>
                 <p>CPF: {comprado.cpf}</p>

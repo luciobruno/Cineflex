@@ -102,7 +102,7 @@ export default function SeatsPage({ comprador, setComprado }) {
             Selecione o(s) assento(s)
 
             <SeatsContainer>
-                {seats.map((seat, index) => <SeatItem onClick={() => selecionarAssentos(index, seat)} color={assentosMarcadosColor} border={assentosMarcadosBorder} index={index} seats={seats} key={index}>{index + 1}</SeatItem>)}
+                {seats.map((seat, index) => <SeatItem data-test="seat" onClick={() => selecionarAssentos(index, seat)} color={assentosMarcadosColor} border={assentosMarcadosBorder} index={index} seats={seats} key={index}>{index + 1}</SeatItem>)}
             </SeatsContainer>
 
             <CaptionContainer>
@@ -123,16 +123,16 @@ export default function SeatsPage({ comprador, setComprado }) {
             <FormContainer>
                 <form onSubmit={enviarPedido}>
                     Nome do Comprador:
-                    <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Digite seu nome..." />
+                    <input data-test="client-name" type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Digite seu nome..." />
 
                     CPF do Comprador:
-                    <input type="text" value={cpf} onChange={e => setCpf(e.target.value)} placeholder="Digite seu CPF..." />
+                    <input data-test="client-cpf" type="text" value={cpf} onChange={e => setCpf(e.target.value)} placeholder="Digite seu CPF..." />
 
                     <button type="submit">Reservar Assento(s)</button>
                 </form>
             </FormContainer>
 
-            <FooterContainer>
+            <FooterContainer data-test="footer">
                 <div>
                     <img src={items.movie.posterURL} alt="poster" />
                 </div>
