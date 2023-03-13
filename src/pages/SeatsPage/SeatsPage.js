@@ -138,7 +138,7 @@ export default function SeatsPage({ comprador, setComprado }) {
                 </div>
                 <div>
                     <p>{items.movie.title}</p>
-                    <p>{items.day.weekday} - {items.day.date}</p>
+                    <p>{items.day.weekday} - {items.name}</p>
                 </div>
             </FooterContainer>
 
