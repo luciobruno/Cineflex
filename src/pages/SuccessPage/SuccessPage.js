@@ -31,7 +31,7 @@ export default function SuccessPage({setComprado,comprado}) {
                 <p>CPF: {comprado.cpf}</p>
             </TextContainer>
 
-            <button onClick={()=>voltar()}>Voltar para Home</button>
+            <button data-test="go-home-btn" onClick={()=>voltar()}>Voltar para Home</button>
         </PageContainer>
     )
 }
